@@ -19,7 +19,7 @@ from webapp import views as webapp_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', webapp_views.index_view, name='home'),
-    path('articles/add/', webapp_views.article_create_view, name='article_create'),
-    path('article/', webapp_views.article_view, name='article_view'),
+    path('', webapp_views.index_view, name='index'),
+    path('articles/add/', webapp_views.article_create_view, name='article_add'),
+    path('article/<int:pk>', webapp_views.article_view, name='article_view'),
 ]

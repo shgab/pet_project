@@ -1,26 +1,17 @@
-<!DOCTYPE html>
+{% extends 'base.html' %}
 
-<html lang="en">
+{% block title %}{{ article.title }}{% endblock %}
 
-<head>
+{% block content %}
 
-    <meta charset="UTF-8">
+   <div class="container">
 
-    <title>View</title>
+       <h1>{{ article.title }}</h1>
 
-</head>
-<body>
+       <p>Created by <b>{{ article.author }}</b> at <b>{{ article.created_at }}</b></p>
 
-    <p><a href="/">На главную</a></p>
+       <div>{{ article.text }}</div>
 
-    <h1>Article:</h1>
+   </div>
 
-    <h2>{{ article.title }}</h2>
-
-    <p>{{ article.text }}</p>
-
-    <p>By: {{ article.author }}</p>
-
-</body>
-
-</html>
+{% endblock %}

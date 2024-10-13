@@ -1,66 +1,27 @@
-<!doctype html>
+{% extends 'base.html' %}
 
-<html lang="en">
+{% block menu %}
 
-<head>
+   <li><a href="{% url 'article_add' %}">Add Article</a></li>
 
-    <meta charset="UTF-8">
+{% endblock %}
 
-    <meta name="viewport"
+{% block content %}
 
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+   <h1>Articles:</h1>
 
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <hr/>
 
-    <title>Hello</title>
+   {% for article in articles %}
 
-    <style type="text/css">
+       <h2>{{ article.title }}</h2>
 
-        body {
+       <div>{{ article.text }}</div>
 
-            font-family: Arial, sans-serif;
+       <p><a href="{% url 'article_view' article.pk %}">More...</a></p>
 
-            font-size: 16px;
+       <hr/>
 
-            color: #444444;
+   {% endfor %}
 
-        }
-
-
-
-        .container {
-
-            margin: 0 auto;
-
-            width: 100%;
-
-            max-width: 900px;
-
-            text-align: center;
-
-        }
-
-
-
-    </style>
-
-</head>
-
-<body>
-<h1>Articles</h1>
-
-    <p><a href="/articles/add/">Добавить</a></p>
-
-{% for article in articles %}
-
-    <h2>{{ article.title }}</h2>
-
-    <p><a href="/article/?pk={{ article.pk }}">Подробнее...</a></p>
-
-    <hr>
-
-{% endfor %}
-
-</body>
-
-</html>
+{% endblock %}
